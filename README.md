@@ -1,12 +1,12 @@
 # Turuf
-An online multiplayer Kashmiri Card Came
+An online multiplayer Kashmiri Card Came - http://turuf-sarr.rf.gd/
 
 A clean and simple online card game of Turuf for all your Kashmiri friends and family.
 Make a room and invite your friends to play with you.
 
 # Example Shots
 
-# On Wide Screen Device
+### On Wide Screen Device
 
 <image src="img/git_make_room_laptop.png" />
 
@@ -14,11 +14,19 @@ Make a room and invite your friends to play with you.
 
 <image src="img/play_game_laptop.png" />
 
-# Mobile Device
+### Mobile Device
 
-<image src="img/make_room_mobile.png" width=250 />
+<table>
+  <tr>
+    <td>Home Screen</td>
+     <td>Room</td>
+     <td>Game</td>
+  </tr>
+  <tr>
+    <td><image src="img/make_room_mobile.png" width=250 /></td>
+    <td><image src="img/join_room_mobile.png" width=250/></td>
+    <td><image src="img/play_game_mobile.png" width=250/></td>
+  </tr>
+ </table>
 
-<image src="img/join_room_mobile.png" width=250/>
-
-<image src="img/play_game_mobile.png" width=250/>
 
