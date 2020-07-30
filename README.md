@@ -6,4 +6,4 @@ Make a room and invite your friends to play with you.
 
 #Example Shots
 
-<image src="img/make_room_laptop.png" />
+<image src="img/git_make_room_laptop.png" />
