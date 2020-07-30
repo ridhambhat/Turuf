@@ -25,8 +25,10 @@ Make a room and invite your friends to play with you.
   <tr>
     <td><image src="img/make_room_mobile.png" width=250 /></td>
     <td><image src="img/join_room_mobile.png" width=250/></td>
-    <td><image src="img/play_game_mobile.png" width=250 style="transform:rotate(270deg);"/></td>
+    <td><image src="img/play_game_mobile.png" width=250"/></td>
   </tr>
  </table>
+      
+# Enjoy the Game
 
 
