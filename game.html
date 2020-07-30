@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Turuf</title>
+    <script src="js/lib/easeljs-0.7.1.min.js"></script>
+    <script src="js/lib/tweenjs-0.5.1.min.js"></script>
+    <script src="js/lib/preloadjs-0.4.1.min.js"></script>
+    <script src = "https://turuf-server-example-3.herokuapp.com/socket.io/socket.io.js"></script>
+    <script src = "https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="js/main.js?v=2"></script>
+    <script src="js/Card.js?v=2"></script>
+    <script src="js/Deck.js?v=2"></script>
+
+    <!-- <script defer src= "js/socketScript.js" ></script> -->
+
+    <link rel="stylesheet" href="css/gameStyle.css">
+    <link rel="shortcut icon" href="img/logo_turuf.ico" />
+</head>
+
+<body onload="setSizes();init();">
+
+    <!-- <img src="img/body_background.jpg" style="height: 100%; width: 100%; object-fit: cover;" > -->
+
+    <div style = "height:100%; width:100%" >
+        <!-- <img id="img_bck" src="img/turuf_back.png" class="centered"> -->
+        <!-- <img id="img_bck" src="img/body_background.jpg" style="height: 100%; width: 100%; object-fit: cover;"> -->
+        <img id="img_bck" src="img/body_background_3.png" style="height: 100%; width: 100%; object-fit: cover;">
+        <canvas id="canvas" class="centered"></canvas>
+        <img id="loading" class="centerdown" src = "img/loading.gif" style="height: 10%;"> </img>
+    </div>
+
+</body>
+
+<script>
+    function setSizes(){
+        let bck = document.getElementById("img_bck");
+        let cnv = document.getElementById("canvas");
+        cnv.height = bck.height;
+        cnv.width = bck.width;
+        // cnv.height = window.screen.availHeight;
+        // cnv.width = window.screen.availWidth;
+    }
+</script>
+
+</html>

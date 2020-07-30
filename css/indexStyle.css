@@ -1,0 +1,189 @@
+body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: fixed; 
+    background-color: #212122;
+    /* background-size: cover; */
+    font-family: sans-serif;
+}
+
+.loginBox{
+    height: 440px;
+    width: 500px;
+    background: #212122;
+    color: #ffffff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 40px;
+}
+
+.avatar{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+h1{
+    margin: 0;
+    margin-top: 70px;
+    margin-bottom: 20px;
+    padding: 0px;
+    text-align: center;
+    font-size: 30px
+}
+
+h2{
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0px;
+    text-align: center;
+    font-size: 20px
+}
+
+h3{
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0px;
+    text-align: center;
+    font-weight: lighter;
+    font-size: 20px
+}
+
+h4{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+    color: #b0b0b0;
+    font-size: small;
+    font-weight: bold;
+}
+
+.onlyButton{
+    position: absolute;
+    bottom: 5%;
+    border: none;
+    outline: none;
+    height: 40px;
+    margin-left: 10%;
+    width: 80%;
+    background: #807e7e;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: medium;
+    border-radius: 20px; 
+}
+
+.loginBox p{
+    margin: 0;
+    margin-left: 10%;
+    padding: 0;
+    font-weight: bold;
+}
+
+.loginBox input{
+    width: 80%;
+    margin-left: 10%;
+}
+
+.loginBox input[type="text"]{
+    /* border: none; */
+    margin-bottom: 20px;
+    border-color: #ffffff ;
+    border-top: 0px;
+    border-left: 0;
+    border-right: 0;
+    border-width: 1px;
+    background: transparent !important;
+    outline: none !important;;
+    height: 40px;
+    color: #c0c0c0;
+    font-size: 15px;
+
+}
+
+
+.loginBox input[type="radio"]{
+    border: none;
+    margin-bottom: 20px;
+    width: 12px;
+
+}
+
+.loginBox input[type="submit"]{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #807e7e;
+    color: #ffffff;
+    border-radius: 20px;
+}
+
+.subBut{
+    border: none;
+    outline: none;
+    height: 40px;
+    margin-left: 10%;
+    width: 80%;
+    background: #807e7e;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: medium;
+    border-radius: 20px;
+}
+
+.loginBox label{
+    font-size: 15px;
+}
+
+h6{
+    float: left !important;
+    width: 50%;
+    margin: 0;
+    margin-top: 7px;
+    margin-bottom: 6px;
+    padding: 0px;
+    text-align: right;
+    font-weight: lighter;
+    font-size: 20px
+        
+}
+
+.radioForMakeRoom{
+    float: left !important;
+    margin-top: 13px;
+    margin-bottom: 0px;
+    width: 40%;
+}
+
+.choosePlayerRadio input[type="radio"]{
+    width: 12px !important;
+}
+
+/* input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px  #212122 !important;
+    box-shadow: 0 0 0 30px  #212122 !important;
+    -webkit-background-composite: inherit;
+}
+
+input:-webkit-autofill {
+    -webkit-text-fill-color: rgb(121, 121, 119) !important;
+    /* -webkit-box-shadow: 0 0 0 30px  #ffffff !important;
+    box-shadow: 0 0 0 30px  #ffffff !important; */
+    /* -webkit-background-origin: inherit;
+    background-origin: inherit; 
+}*/
