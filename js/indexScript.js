@@ -1,90 +1,66 @@
-const joinHtml = "/joinRoom.html";
-const makeHtml = "/makeRoom.html";
-var nextHtml = makeHtml;
-var choice = "make";
+var shouldGoToMakeRoom = true;
 
-// jQuery(document).ready(function($) {
-// var form = $('form[name="mainForm"]'),
-//     radio = $('input[name="makeOrJoin"]'), 
-//     choice = '';
-            
-//     radio.change(function(e) {
-//         choice = this.value;              
-//         if (choice === 'Make Room') {
-//             form.attr('action', 'make_room.html');
-//         } else {
-//             form.attr('action', 'join_room.html');
-//         }
-//     });
-// });
-
-document.addEventListener('DOMContentLoaded', function(){
-    init();
-})
-
-const init = function(e){
-
-    var zr;
-    var ih = window.innerHeight;
-    var iw = window.innerWidth;
-    if(ih>iw){
-        zr = 0.7*iw/500;
-    }
-    else{
-        zr = 0.7*ih/440;
-    }
-    document.body.style.zoom=(zr);this.blur();
-    var r1 = document.getElementById('r1');
-    var r2 = document.getElementById('r2');
+const indexInit = function(){
+    // SOCKET = io('https://turuf-server-example-3.herokuapp.com/');
+    SOCKET = io(SOCKETLINK);
+    // var zr;
+    // var ih = window.innerHeight;
+    // var iw = window.innerWidth;
+    // if(ih>iw){
+    //     zr = 0.7*iw/500;
+    // }
+    // else{
+    //     zr = 0.7*ih/440;
+    // }
+    // document.body.style.zoom=(zr);
+    // this.blur;
+    // document.body.style.transform = `scale(${zr})`;
+    // document.body.style['--zoom'] = `${zr}`;
+    this.blur();
+    var r1 = document.getElementById('radio1');
+    var r2 = document.getElementById('radio2');
     var b = document.getElementById('submit');
     showMake();
     r1.addEventListener('click', function() {
-        if(choice !== "make"){
+        if(!shouldGoToMakeRoom){
             showMake();
-            choice = "make";
-            nextHtml = makeHtml;
-
-            console.log("r1 clicked");
+            shouldGoToMakeRoom = true;
+            console.log("make room clicked");
         }
     });
     r2.addEventListener('click', function(){
-        if(choice !== "join"){
+        if(shouldGoToMakeRoom){
             showJoin();
-            choice = "join";
-            nextHtml = joinHtml;
-            
-            console.log("r2 clicked");
+            shouldGoToMakeRoom = false;
+            console.log("join room clicked");
         }
     });
     b.addEventListener('click', function(){
-
         var userName = document.getElementById('usernameValue').value.trim();
-        // ?myparam1=123&myparam2=abc 
-        var urlExtra = "?username=";
         var shouldGoNext = true;
         if(!isGoodString(userName)){
             console.log("username isBadString");
             alert('User Name can\'t be empty and is only allowed to have alphabets and spaces');
             shouldGoNext = false;
         }
-        urlExtra = urlExtra+userName.replace(' ','+');
-        var roomName = "";
-        if(nextHtml === joinHtml){
+        var roomName = makeUniqueRoomId(userName);
+        if(!shouldGoToMakeRoom){
             roomName = document.getElementById('roomNameValue').value.trim();
             if(!isGoodString(roomName)){
                 console.log("roomname isBadString");
                 alert('Room Name ican\'t be empty and is only allowed to have alphabets and spaces');
                 shouldGoNext = false;
             }
-            urlExtra = urlExtra+"&roomname="+roomName.replace(' ','+');
         }
-
         if(shouldGoNext){
             console.log("Going Next");
-            localStorage.setItem('username', userName);
-            localStorage.setItem('roomname', roomName);
-            // nextHtml = nextHtml+urlExtra;
-            window.document.location = nextHtml;
+            //GoToNextRoom
+            USERNAME = userName;
+            ROOMNAME = roomName;
+            if(shouldGoToMakeRoom)
+            showMakeRoom();
+            else
+            showJoinRoom();
         }
 
     });
@@ -116,4 +92,11 @@ isGoodString = function(str){
 function isGoodChar(c) {
     //return false;
     return ( ( (c>='a') & (c<='z')) || ( (c>='A') & (c<='Z')) || ( (c>='0') & (c<='9' ) ) || (c === " ") );
+}
+
+makeUniqueRoomId = function(name){
+    for(var i = 0; i<5 ; i++){
+        name = name + (Math.floor(Math.random() * Math.floor(10))).toString();
+    }
+    return name;
 }

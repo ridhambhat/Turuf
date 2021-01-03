@@ -8,9 +8,9 @@ Make a room and invite your friends to play with you.
 
 ### On Wide Screen Device
 
-<image src="img/git_make_room_laptop.png" />
+<image src="img/make_room_laptop.png" />
 
-<image src="img/git_join_room_laptop.png" />
+<image src="img/join_room_laptop.png" />
 
 <image src="img/play_game_laptop.png" />
 

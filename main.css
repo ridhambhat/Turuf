@@ -1,13 +1,23 @@
-body{
+html, body{
     height: 100%;
     width: 100%;
+}
+body{
     margin: 0;
     padding: 0;
     overflow: hidden;
     position: fixed; 
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute; 
     background-color: #212122;
-    /* background-size: cover; */
     font-family: sans-serif;
+}
+
+@font-face{
+    font-family: 'corben';
+    src: local('../fonts/Corben-Bold.ttf') format('truetype');
 }
 
 .loginBox{
@@ -171,19 +181,44 @@ h6{
     width: 12px !important;
 }
 
-/* input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active  {
-    -webkit-box-shadow: 0 0 0 30px  #212122 !important;
-    box-shadow: 0 0 0 30px  #212122 !important;
-    -webkit-background-composite: inherit;
+.centered{
+    position: fixed; 
+    height:100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-input:-webkit-autofill {
-    -webkit-text-fill-color: rgb(121, 121, 119) !important;
-    /* -webkit-box-shadow: 0 0 0 30px  #ffffff !important;
-    box-shadow: 0 0 0 30px  #ffffff !important; */
-    /* -webkit-background-origin: inherit;
-    background-origin: inherit; 
-}*/
+.centerdown{
+    overflow: hidden;
+    position: fixed; 
+    height:100%;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* .absIndexPos{
+    position:absolute;
+    right: 50%;
+    top: 50%;
+}
+
+.absJoinRoomPos{
+    position:absolute;
+    right: 50%;
+    top: 50%;
+}
+
+.absMakeRoomPos{
+    position:absolute;
+    right: 50%;
+    top: 50%;
+}
+
+.absGamePos{
+    position: absolute;
+    right: 50%;
+    top: 50%;
+} */
+
