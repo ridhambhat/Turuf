@@ -1,0 +1,19 @@
+{
+  "name": "turuf_socketio_1",
+  "version": "1.0.0",
+  "description": "learn",
+  "main": "script.js",
+  "scripts": {
+    "start": "node script.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dependencies": "0.0.1",
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0",
+    "socketio": "^1.0.0"
+  },
+  "devDependencies": {
+  }
+}
