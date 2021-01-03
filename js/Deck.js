@@ -10,9 +10,6 @@ class Deck{
         this.topOffset = 0;
         this.bottomOffset = 50 * mainScale;
 
-
-
-
         this.playVerticalOffset =  0.30 * mainh;
         this.playHorizontalOffset = 0.30 * mainw;
 
@@ -50,14 +47,7 @@ class Deck{
         console.log("Is My Chance = "+this.isMyChance);
 
         this.makeDeck();
-
-        
-
         //InGame
-        
-
-
-
     }
 
     makeDeck = function(){
@@ -191,7 +181,10 @@ class Deck{
         var rects = [];
         var bds = [];
         var temptext;
-        globalThis.partner = this.inPlayerNames[ (2+this.playerPos)%4 ];
+        if("my partner" != this.inPlayerNames[ (2+this.playerPos)%4 ]){
+            globalThis.partner_g = this.inPlayerNames[ (2+this.playerPos)%4 ];
+            PARTNER = this.inPlayerNames[ (2+this.playerPos)%4 ];
+        }
         for(var i = 0; i<4; i++){
             var size = Math.ceil((20 * mainScale)).toString();
             this.textContainer.push(new createjs.Container());
@@ -240,12 +233,6 @@ class Deck{
             rotation = rotation + 90;
         }
 
-
-        
-        
-
-
-
         // mainStage.addChild(this.text[0]);
         // mainStage.addChild(this.text[1]);
         // mainStage.addChild(this.text[2]);
@@ -256,7 +243,6 @@ class Deck{
 
         //SetCardsRespectiveToPlayerPosition
         //Player0 is the user
-
         
 
         console.log("Let's set the deck");
@@ -363,7 +349,7 @@ class Deck{
                 if(mainDeck.handFirstSuit == 0){
                     var play = aCard.inCardId.toString();
                     console.log("card Played");
-                    socket.emit('moveMade', play);
+                    SOCKET.emit('moveMade', play);
                     mainDeck.isMyChance = false;
                     var index = mainDeck.myCardIds.findIndex(id => parseInt(id) === parseInt(play));
                     if (index !== -1) {
@@ -384,7 +370,7 @@ class Deck{
                     if( !inSameSuitAvailable ){
                         var play = aCard.inCardId.toString();
                         console.log("card Played");
-                        socket.emit('moveMade', play);
+                        SOCKET.emit('moveMade', play);
                         mainDeck.isMyChance = false;
                         var index = mainDeck.myCardIds.findIndex(id => parseInt(id) === parseInt(play));
                         if (index !== -1) {
@@ -394,7 +380,7 @@ class Deck{
                     else if( suitOfCardPlayed == mainDeck.handFirstSuit){
                         var play = aCard.inCardId.toString();
                         console.log("card Played");
-                        socket.emit('moveMade', play);
+                        SOCKET.emit('moveMade', play);
                         mainDeck.isMyChance = false;
                         var index = mainDeck.myCardIds.findIndex(id => parseInt(id) === parseInt(play));
                         if (index !== -1) {

@@ -2,37 +2,119 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="google-site-verification" content="G3kdsVtxY4qoqONj6RMSPnwjOFtm-3A-90CXJ5FLL1E" />
-        <!-- <meta name=”viewport” content=”width=device-width, initial-scale=1″> -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Turuf</title>
         <meta name="keywords" content="Turuf, Card Game, Kashmiri Card Game, Multiplayer Card Game, Kashmiri, Turaf, Turuuf">
-        <title>Turuf</title>    
-        <link rel="stylesheet" href="css/indexStyle.css"/>
+        <meta name="description" content="A kashmiri multiplayer card game">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src = "https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <link rel="shortcut icon" href="img/logo_turuf.ico" />
-        <script src = "js/index2script.js"></script>
-        
+        <script src="js/lib/easeljs-0.7.1.min.js"></script>
+        <script src="js/lib/tweenjs-0.5.1.min.js"></script>
+        <script src="js/lib/preloadjs-0.4.1.min.js"></script>
+        <script src= "js/main.js"></script>
+        <script src = "https://turuf-server-example-3.herokuapp.com/socket.io/socket.io.js"></script>
+        <script src = "js/joinRoomScript.js"></script>
+        <script src = "js/makeRoomScript.js"></script>
+        <script src="js/Card.js?v=2"></script>
+        <script src="js/Deck.js?v=2"></script>
+        <script src="js/gameScript.js?v=2"></script>
+        <script src = "js/indexScript.js"></script>
+        <link rel="stylesheet" href="main.css">
     </head>
-    <body>
-        <!-- <img src="img/body_background.jpg" style="height: 100%; width: 100%; object-fit: cover;" > -->
-        <img src="img/body_background_3.png" style="height: 100%; width: 100%; object-fit: cover;" >
-        <div class="loginBox" id="loginDiv">
+    <body onload="setSizes();"> 
+
+        <script>
+            var zr;
+            var ih = window.innerHeight;
+            var iw = window.innerWidth;
+            if(ih>iw){
+                zr = 0.7*iw/500;
+            }
+            else{
+                zr = 0.7*ih/440;
+            }
+            document.body.style.zoom=(zr);
+            // this.blur;
+            // document.body.style.transform = `scale(${zr})`;
+
+        </script>
+
+        <img id="img_bck" src="img/body_background_3.png" style="height: 100%; width: 100%; object-fit: cover;" >
+
+        <div id="indexHtml" class="absIndexPos">
+            <div class="loginBox" id="indexDiv">
+                <img src="img/logo_turuf.png" class="avatar"> 
+                <h1>Turuf</h1>
+                    <p>Username</p>  
+                    <input id ="usernameValue" type="text" name="username" placeholder="Enter Username" autocomplete="off" required>
+                    <br>
+                    <input id = "radio1" type = "radio" name = "makeOrJoin" value="Make Room" checked>
+                    <label for = "Make Room">Make Room</label>
+                    <br>
+                    <input id = "radio2" type = "radio" name = "makeOrJoin" value="Join Room">
+                    <label for = "Join Room">Join Room</label><br>
+                    <div id="spaceForRoomName" style="margin-top: 10px;"></div>
+                    <button class="subBut" id="submit" type="Button">Go</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="makeRoomHtml">
+
+            <div class="loginBox" id="makeRoomDiv">
             
-            <img src="img/logo_turuf.png" class="avatar"> 
- 
-            <h1>Turuf</h1>
-            
-                <p>Username</p>  
-                <input id ="usernameValue" type="text" name="username" placeholder="Enter Username" autocomplete="off" required>
-                <br>
-                <input id = "r1" type = "radio" name = "makeOrJoin" value="Make Room" checked>
-                <label for = "Make Room">Make Room</label>
-                <br>
-                <input id = "r2" type = "radio" name = "makeOrJoin" value="Join Room">
-                <label for = "Join Room">Join Room</label><br>
-                <div id="spaceForRoomName" style="margin-top: 10px;"></div>
-                <button class="subBut" id="submit" type="Button">Go</button>
-            </form>
+                <img src="img/logo_turuf.png" class="avatar"> 
+     
+                <h1>Turuf</h1>
+    
+                <h2 id="yourRoomTitleMR">Your Room</h2>
+    
+                <div id="divForPlayersMR" style="width: 100%; margin:0; padding:0;">
+    
+                </div>
+    
+                <button id = "onlyButton" class="onlyButton">Waiting For All Players To Join</button>            
+                
+            </div>
 
         </div>
+
+        <div id="joinRoomHtml">
+            <div class="loginBox" id="joinRoomDiv">
+            
+                <img src="img/logo_turuf.png" class="avatar"> 
+     
+                <h1>Turuf</h1>
+    
+                <h2 id="yourRoomTitleJR">Your Room</h2>
+    
+                <div id="divForPlayersJR" class="enteries in room">
+                </div>
+    
+                <h4>Waiting For Other Players To Join Room</h4>            
+                
+            </div>
+        </div>
+
+        <div id="gameHtml">
+
+            <div style = "height:100%; width:100%" >
+                <!-- <img id="img_bck" src="img/body_background_3.png" style="height: 100%; width: 100%; object-fit: cover;"> -->
+                <canvas id="canvas" class="centered"></canvas>
+                <img id="loading" class="centerdown" src = "img/loading.gif" style="height: 10%;"> </img>
+            </div>
+
+        </div>
+
     </body>
+
+    <script>
+        function setSizes(){
+            let bck = document.getElementById("img_bck");
+            let cnv = document.getElementById("canvas");
+            cnv.height = bck.height;
+            cnv.width = bck.width;
+        }
+    </script>
+
 </html>
