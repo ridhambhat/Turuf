@@ -1,21 +1,7 @@
 var shouldGoToMakeRoom = true;
 
 const indexInit = function(){
-    // SOCKET = io('https://turuf-server-example-3.herokuapp.com/');
     SOCKET = io(SOCKETLINK);
-    // var zr;
-    // var ih = window.innerHeight;
-    // var iw = window.innerWidth;
-    // if(ih>iw){
-    //     zr = 0.7*iw/500;
-    // }
-    // else{
-    //     zr = 0.7*ih/440;
-    // }
-    // document.body.style.zoom=(zr);
-    // this.blur;
-    // document.body.style.transform = `scale(${zr})`;
-    // document.body.style['--zoom'] = `${zr}`;
     this.blur();
     var r1 = document.getElementById('radio1');
     var r2 = document.getElementById('radio2');
